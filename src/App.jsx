@@ -3,7 +3,7 @@ import Map from "./components/Map";
 import Search from "./components/Search";
 
 function App() {
-  const [IPAddress, setIPAddress] = useState("");
+  const [IPAddress, setIPAddress] = useState("103.48.198.141");
   const [location, setLocation] = useState("");
   const [timezone, setTimezone] = useState("");
   const [coordinates, setCoordinates] = useState({
@@ -13,12 +13,13 @@ function App() {
   const [ISP, setISP] = useState("");
   const [postal, setPostal] = useState("");
 
-  const hackDetails = async (ipAddress = "") => {
+  const hackDetails = async (ipAddress = IPAddress) => {
     const res = await fetch(
       `https://geo.ipify.org/api/v2/country,city?apiKey=${
-        import.meta.env.API_KEY
-      }ipAddress=${ipAddress}`
+        import.meta.env.VITE_API_KEY
+      }&ipAddress=${ipAddress}`
     );
+
     const data = await res.json();
     setIPAddress(data.ip);
     setLocation(

@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 const Search = ({ setIPAddress, fetchLocation }) => {
-  const [ipAddress, setIpAddress] = useState("");
+  const [input, setInput] = useState("");
 
   const handleClick = () => {
-    setIPAddress(ipAddress);
-    fetchLocation(ipAddress);
+    setIPAddress(input);
+    fetchLocation(input);
   };
 
   return (
@@ -15,7 +15,7 @@ const Search = ({ setIPAddress, fetchLocation }) => {
           type="text"
           className="w-4/5 h-full rounded-md border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none placeholder:text-muted-foreground text-lg border border-gray-300"
           placeholder="Enter the IP Address here.."
-          onChange={(e) => setIpAddress(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
         />
         <div
           className=" h-full flex justify-center items-center cursor-pointer"
